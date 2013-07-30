@@ -7,7 +7,18 @@ tell application "Microsoft Outlook"
 	
 	set tomorrow to (today) + (24 * 60 * 60)
 	log (tomorrow)
+	(*
+	set allMeetings to calendar events
 	
+	repeat with aMeeting in allMeetings
+		if is occurrence of aMeeting is true then
+			log "All Meeting Title: " & (get subject of aMeeting)
+			set rec to recurrence of aMeeting
+			log "Date: " & (get start date of rec)
+		end if
+		
+	end repeat
+	*)
 	set todaysMeetings to calendar events where start time is greater than today and start time is less than tomorrow
 	if ((count of todaysMeetings) < 1) then return
 	
