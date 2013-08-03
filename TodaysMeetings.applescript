@@ -50,7 +50,7 @@ tell application "Microsoft Outlook"
 		set lowerSubject to (my change_case(meetingSubject, 0))
 		set lowerSubject to my replace_chars(lowerSubject, " ", "-")
 		set filePath to (path to desktop as text) & fileName
-		set fileContent to ("---" & return) & ("meeting: " & meetingSubject & return) & ("date: " & my format_date(meetingStartTime, "<<Month 2>>-<<Day 2>>-<<Year>> <<Time>>") & return) & (attendeeHeader & return) & ("---" & return)
+		set fileContent to ("---" & return) & ("meeting: " & meetingSubject & return) & ("date: " & my format_date(meetingStartTime, "<<Month 2>>-<<Day 2>>-<<Year>> <<Time>>") & return) & ("organizer: " & organizer of meeting & return) & (attendeeHeader & return) & ("---" & return)
 		my write_to_file(fileContent, filePath, false)
 		
 	end repeat
