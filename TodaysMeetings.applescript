@@ -27,13 +27,22 @@ tell application "Microsoft Outlook"
 		set meetingSubject to get subject of meeting
 		set meetingStartTime to get start time of meeting
 		set people to get attendees of meeting
-		
+		set test to last item in people
+		set mailadd to email address of test
+		set username to name of mailadd
+		log ("Last name: " & username as string)
+		log ("count " & the (count of people))
 		set attendeeHeader to "attendees: ["
+		set lastPerson to item -1 of people
 		repeat with per in people
 			set ea to get email address of per
 			set n to get name of ea
-			
-			set attendeeHeader to attendeeHeader & n & ", "
+			if (per is not lastPerson) then
+				set attendeeHeader to attendeeHeader & n & ", "
+			else
+				set attendeeHeader to attendeeHeader & n
+			end if
+			log "Last Person: " & (get name of lastPerson)
 			log "Person: " & (get name of ea)
 		end repeat
 		set attendeeHeader to attendeeHeader & "]"
