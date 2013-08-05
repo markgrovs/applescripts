@@ -1,6 +1,6 @@
 tell application "Microsoft Outlook"
 	
-	set today to (current date) - (24 * 60 * 60)
+	set today to (current date) - ((24 * 60 * 60)* 2)
 	set time of today to 0
 	log (today)
 	
