@@ -14,7 +14,7 @@ on create_notes(myEvent)
 		repeat with per in people
 			set ea to get email of per
 			set n to get display name of per
-	
+			
 			if (ea is not lastEmail) then
 				set attendeeHeader to attendeeHeader & n & ", "
 			else
@@ -41,7 +41,7 @@ end create_notes
 
 on get_selected_event()
 	tell application "Calendar" to activate
-	delay 1
+	--delay 1
 	tell application "System Events"
 		tell process "Calendar"
 			keystroke return
