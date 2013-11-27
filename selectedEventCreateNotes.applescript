@@ -9,12 +9,15 @@ on create_notes(myEvent)
 		set attendeeHeader to "attendees: ["
 		if ((count of people) > 0) then
 			set lastEmail to email of the last item of people
+			log ("Last Email: " & lastEmail)
 		end if
 		
 		repeat with per in people
+			set ea to null
 			set ea to get email of per
+			set n to null
 			set n to get display name of per
-			
+			log ("NNN Email: " & n)
 			if (ea is not lastEmail) then
 				set attendeeHeader to attendeeHeader & n & ", "
 			else
