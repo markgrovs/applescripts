@@ -20,8 +20,8 @@ set f to false
 set flist to {}
 
 --Marked (if Marked is foreground, hide Marked and end script)
-if frontApp is "Marked" then
-	tell application "System Events" to set visible of process "Marked" to false
+if frontApp is "Marked 2" then
+	tell application "System Events" to set visible of process "Marked 2" to false
 	return
 	--Notational Velocity/nvALT
 else if (frontApp is "Notational Velocity") or (frontApp is "nvALT") then
@@ -104,14 +104,14 @@ else
 end if
 
 if f is false and flist is not {} then
-	tell application "Marked"
+	tell application "Marked 2"
 		activate
 		repeat with afile in flist
 			open (afile as alias)
 		end repeat
 	end tell
 else if f is not false then
-	tell application "Marked"
+	tell application "Marked 2"
 		activate
 		open f
 	end tell
